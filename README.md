@@ -167,7 +167,11 @@ Then OpenSSL must be used for SSH connections. Verify GnuTLS:
         >>> pycurl.version
         'libcurl/7.22.0 GnuTLS/2.12.14 zlib/1.2.3.4 libidn/1.23 librtmp/2.3'
 
+Or
 
+        $ python3 -c "import pycurl;print(pycurl.version)"
+        PycURL/7.43.0.2 libcurl/7.64.0 GnuTLS/3.6.7 zlib/1.2.11 libidn2/2.0.5 libpsl/0.20.2 (+libidn2/2.0.5) libssh2/1.8.0 nghttp2/1.36.0 librtmp/2.3
+        $
 1. sudo apt-get install build-essential fakeroot dpkg-dev
 2. sudo apt-get install libcurl4-openssl-dev
 3. mkdir ~/python-pycurl-openssl
