@@ -218,4 +218,10 @@ Install it with following command:
 
         pip install robotframework-pycurllibrary --upgrade
 
+### Updates
+
+I've made some minor changes so this should work with Python 3.
+
+        python3 ./setup.py build
+        sudo python3 ./setup.py install
 
