@@ -66,11 +66,11 @@ class Test(unittest.TestCase):
         response = lib.response()
         if response is None:
             raise NotImplementedError
-        print 'GET Response:'
-        print response
+        print('GET Response:')
+        print(response)
         responseHeader = lib.response_headers()
-        print 'GET Response Headers:'
-        print responseHeader
+        print('GET Response Headers:')
+        print(responseHeader)
         pass
 
     def testgetHeaderFile(self):
@@ -86,17 +86,17 @@ class Test(unittest.TestCase):
         response = lib.response()
         if response is None:
             raise NotImplementedError
-        print 'GET Response:'
-        print response
+        print('GET Response:')
+        print(response)
         responseHeader = lib.response_headers()
-        print 'GET Response Headers:'
-        print responseHeader
+        print('GET Response Headers:')
+        print(responseHeader)
         pass
 
     def testpost(self):
         lib = PycURLLibrary();
         messageFile = join(testenv.ROOT_DIR, 'soap-request.xml')
-        print messageFile
+        print(messageFile)
         f = open(messageFile, 'r')
         data = f.read()
         f.close()
@@ -110,51 +110,51 @@ class Test(unittest.TestCase):
         response = lib.response()
         if response is None:
             raise NotImplementedError
-        print 'POST Response:'
-        print response
+        print('POST Response:')
+        print(response)
         responseHeader = lib.response_headers()
-        print 'POST Response Headers:'
-        print responseHeader
+        print('POST Response Headers:')
+        print(responseHeader)
         responseStatus = lib.http_response_status()
-        print 'HTTP Response Status:'
-        print responseStatus
+        print('HTTP Response Status:')
+        print(responseStatus)
         lib.response_status_should_contain(unicode('200'))
         root = lib.parse_xml()
-        print root
+        print(root)
         root = lib.xml_root_element()
-        print root
+        print(root)
         elems = lib.find_elements(root, unicode('country'))
-        print elems
+        print(elems)
         if not elems:
-            print 'country empty'
+            print('country empty')
         elems = lib.find_elements(root, unicode('.//{http://ws.poc.jivalo/hello/v1}customer'))
         if not elems:
-            print 'customer empty'
+            print('customer empty')
         print elems
         for el in elems:
-            print el.tag
+            print(el.tag)
 
         elems = lib.find_elements(root, unicode('.//name'))
         lib.should_contain_element(root, unicode('.//name'))
-        print elems
+        print(elems)
         for el in elems:
-            print el.tag
-            print el.text
+            print(el.tag)
+            print(el.text)
         
         lib.element_should_contain(elems[0], unicode('Hello, world!'))
         
         elem = lib.find_first_element(root, unicode('.//name'))
-        print elem
+        print(elem)
         
         try:
             lib.element_should_contain(elems[0], 'Hello')
-        except AssertionError, a:
-            print a
+        except AssertionError as a:
+            print(a)
                 
         try:
             lib.should_contain_element(root, './country')
-        except AssertionError, a:
-            print a
+        except AssertionError as a:
+            print(a)
             
         pass
 

@@ -20,10 +20,10 @@ from subprocess import call
 
 try:
     import pycurl
-except ImportError, e:
-    print 'Importing pycurl module failed (%s).' % e
-    print 'Please make sure you have pycurl properly installed.'
-    print 'See INSTALL.rst for troubleshooting information.'
+except ImportError as e:
+    print('Importing pycurl module failed (%s).' % e)
+    print('Please make sure you have pycurl properly installed.')
+    print('See INSTALL.rst for troubleshooting information.')
     sys.exit(1)
 
 ROBOT_ARGS = [
@@ -41,10 +41,10 @@ def run_tests(args):
     call(['pybot'] + ROBOT_ARGS + args, shell=(os.sep == '\\'))
 
 def print_help():
-    print __doc__
+    print(__doc__)
 
 def print_usage():
-    print 'Usage: run_tests.py help'
+    print('Usage: run_tests.py help')
 
 
 if __name__ == '__main__':

@@ -66,9 +66,9 @@ class TestRequestHandler(BaseHTTPRequestHandler):
     def do_POST(self, *args, **kwargs):
         if self.path == '/soap':
             data = self.rfile.read(int(self.headers['Content-Length']))
-            print data
+            print(data)
             responseFile = os.path.abspath(os.path.join(os.path.dirname(__file__), 'soap-response.xml'))
-            print responseFile
+            print(responseFile)
             f = open(responseFile, 'r')
             responseData = f.read()
             f.close()
@@ -96,11 +96,11 @@ try:
     server = HTTPServer(('localhost', PORT), TestRequestHandler)
     scheme = 'http'
         
-    print 'Starting server on %s://localhost:%d/' % (scheme, PORT)
+    print('Starting server on %s://localhost:%d/' % (scheme, PORT))
     
     server.serve_forever()
 
 except KeyboardInterrupt:
-    print '^C received, shutting down the web server'
+    print('^C received, shutting down the web server')
     server.socket.close()
     

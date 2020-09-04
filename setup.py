@@ -26,7 +26,11 @@ from ez_setup import use_setuptools
 use_setuptools()
 from setuptools import setup
 
-execfile(join(dirname(__file__), 'src', 'PycURLLibrary', 'version.py'))
+#execfile(join(dirname(__file__), 'src', 'PycURLLibrary', 'version.py'))
+#exec(compile(open(join(dirname(__file__), 'src', 'PycURLLibrary', 'version.py')).read()))
+filenom = join(dirname(__file__), 'src', 'PycURLLibrary', 'version.py')
+exec(compile(open(filenom , "rb").read(), filenom, 'exec'))
+
 
 DESCRIPTION = """
 PycURLLibrary is client-side URL transfer test library for Robot Framework

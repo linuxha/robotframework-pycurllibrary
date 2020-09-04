@@ -161,7 +161,7 @@ class Url(object):
             self._logger.info("Client Certificate File %s" % (cert))
             try:
                 c.setopt(pycurl.SSLCERT, cert)
-            except TypeError, t:
+            except TypeError as t:
                 self._logger.warn("Wrong setopt SSLCERT value %s" % (cert))
                 raise TypeError(t)
 
@@ -169,7 +169,7 @@ class Url(object):
             self._logger.info("Server Connection Establishment Timeout %d" % (self.get_context().get_server_connection_establishment_timeout()))
             try:
                 c.setopt(pycurl.CONNECTTIMEOUT, self.get_context().get_server_connection_establishment_timeout())
-            except TypeError, t:
+            except TypeError as t:
                 self._logger.warn("Wrong setopt CONNECTTIMEOUT value %d" % (self.get_context().get_server_connection_establishment_timeout()))
                 raise TypeError(t)
             
@@ -178,7 +178,7 @@ class Url(object):
             self._logger.info("CA Path %s" % (capath))
             try:
                 c.setopt(pycurl.CAPATH, capath)
-            except TypeError, t:
+            except TypeError as t:
                 self._logger.warn("Wrong setopt CAPATH value %s" % (capath))
                 raise TypeError(t)
             
@@ -187,13 +187,13 @@ class Url(object):
             self._logger.info("Private Key File %s" % (privateKey))
             try:
                 c.setopt(pycurl.SSLKEY, privateKey)
-            except TypeError, t:
+            except TypeError as t:
                 self._logger.warn("Wrong setopt SSLKEY value %s" % (privateKey))
                 raise TypeError(t)
             
         try:
             c.setopt(pycurl.URL, self.get_context().get_url())
-        except TypeError, t:
+        except TypeError as t:
             self._logger.warn("Wrong setopt URL value %s" % (self.get_context().get_url()))
             raise TypeError(t)
     
@@ -206,7 +206,7 @@ class Url(object):
             self._logger.info("Post Fields %s" % (self._post_fields))
             try:
                 c.setopt(pycurl.POSTFIELDS, str(self._post_fields))
-            except TypeError, t:
+            except TypeError as t:
                 self._logger.warn("Wrong setopt POSTFIELDS value %s" % (self._post_fields))
                 raise TypeError(t)
 
@@ -217,7 +217,7 @@ class Url(object):
             self._logger.info("Headers %s" % (headers))
             try:
                 c.setopt(pycurl.HTTPHEADER, headers)
-            except TypeError, t:
+            except TypeError as t:
                 self._logger.warn("Wrong setopt HTTPHEADER value %s" % (headers))
                 raise TypeError(t)
         else:

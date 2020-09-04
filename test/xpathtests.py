@@ -37,13 +37,13 @@ class Test(unittest.TestCase):
 
     def testXpath(self):
         xmlFile = join(testenv.ROOT_DIR, 'country-data.xml')
-        print xmlFile
+        print(xmlFile)
         f = open(xmlFile, 'r')
         xml = f.read()
         f.close()
         
         root = ET.fromstring(xml)
-        print root
+        print(root)
         elements = root.findall("./country/neighbor")
         for el in elements:
             print el

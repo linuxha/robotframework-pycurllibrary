@@ -34,11 +34,11 @@ class Test(unittest.TestCase):
     def testStringHandling(self):
         header = 'HTTP/1.1 200 OK\nX-Backside-Transport: FAIL FAIL\nConnection: Keep-Alive\nTransfer-Encoding: chunked\nContent-Type: text/xml\n'
         headerLines = header.splitlines()
-        print headerLines 
+        print(headerLines )
         statusLine = headerLines[0]
         isHttpStatusLine = statusLine.upper().startswith('HTTP')
-        print isHttpStatusLine
-        print statusLine
+        print(isHttpStatusLine)
+        print(statusLine)
         pass
 
 if __name__ == "__main__":
